@@ -1,0 +1,31 @@
+<div class="lightbox" v-show="formLightbox==true" style="display:none ">
+<div class="lightbox__content">
+
+  <form class="lightbox__form" action="/users" method="POST">
+    <div class="lightbox__form-control">
+    <label class="lightbox__label">login</label>
+    <input class="lightbox__input" placeholder="enter your login" type="text" name="login"/>
+    </div>
+
+    <div class="lightbox__form-control">
+    <label class="lightbox__label">password</label>
+    <textarea class="lightbox__input" placeholder="enter your password" rows="3" name="password"></textarea>
+    </div>
+
+    <div class="lightbox__actions">
+    <button class="btn btn--primary">LOGOWANIE</button>
+    </div>
+  </form>
+</div>
+</div>
+
+<% if (formUser.length){ %>
+<div class="lightbox" v-show="showFeedback">
+  <div class="lightbox__content">
+    <h2 class="lightbox__header"> <%= formUser.length %>. <%= formUser %></h2>
+      <div class="lightbox__actions lightbox__actions--centered">
+        <button id="btn4" class="btn btn--primary" @click="closeFeedbackUser">Close</button>
+      </div>
+  </div>
+</div>
+<% }%>

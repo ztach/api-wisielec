@@ -1,0 +1,26 @@
+{
+    "development": {
+        "username": null,
+        "password": null,
+        "database": "database",
+        "host": "localhost",
+        "dialect": "sqlite",
+        "storage": "e:/Praca/React/moje_np/wisielec/api-wisielec/data/db_wisielec.s3db"
+    },
+    "test": {
+        "username": "",
+        "password": null,
+        "database": "",
+        "host": "localhost",
+        "dialect": "sqlite",
+        "storage": "../data/database.sqlite"
+    },
+    "production": {
+        "username": "",
+        "password": null,
+        "database": "",
+        "host": "localhost",
+        "dialect": "sqlite",
+        "storage": "../data/database.sqlite"
+    }
+}

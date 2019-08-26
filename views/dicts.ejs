@@ -1,0 +1,86 @@
+<link rel="stylesheet" href="/css/styles_resp_flex.css">
+<% include ./partials/head %>
+
+</head> 
+
+<body>
+
+<header class="app-header">
+  <% include ./partials/header %>
+</header>
+
+<section class="hero">
+        <div class="background-image" ></div>
+<div class="Text">
+  <h3>Widok: Dicts</h3>
+  <p>Widok  <em>Dicts</em> zbiera informacje z tabel <em>Dict</em> i <em>Typ</em> </p>
+      <ul>
+          <li> <em>hasło</em>  - jest hasłem które ma odgadnąć grający </li>
+          <li> <em>typ hasła</em>  - jest podpowiedzią dla grającego. Ma przybliżyć rodzaj hasł </li>
+          <li> <em>Typ</em> - typ pola
+          <li> <em>Polecieni</em> zadanie do wykonania </li> 
+      </ul>
+</div>  
+    
+  
+    <table class="redTable">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>hasło</th>
+                <th>typ hasła</th>
+                <th>typ</th>
+                <th>polecenie</th>
+                <th> </th>
+            </tr>
+        </thead>
+        <tbody>
+          <% for(var i=0; i<dataType.length; i++) {%>
+              <tr>
+                  <td id="<%= dataType[i].id %>" >
+                      <%= dataType[i].id %>
+                  </td> 
+                  <td> 
+                          <a href="/dicts/<%= dataType[i].id %>">
+                      <%= dataType[i].sl %> 
+                          </a>
+                  </td>
+
+                  <td> 
+                        <a href="/dicts/<%= dataType[i].id %>">
+                    <%= dataType[i].gt %> 
+                        </a>
+                </td>
+
+                <td> 
+                        <a href="/dicts/typ?typ=<%= dataType[i].typ %>">
+                    <%= dataType[i].typ %> 
+                        </a>
+                </td>
+
+                <td> 
+                        <a href="/dicts/<%= dataType[i].id %>">
+                    <%= dataType[i].polecenie %> 
+                        </a>
+                </td>
+
+
+                  <td>
+                      <% if(!isAll && isSingle) {  %>
+                              <a href="/dicts">
+                                  <span>&#8592;</span>
+                              </a>
+                      <% } else { %>
+                          <a href="/">
+                              <span>&#8592;</span>
+                          </a>
+                      <% }  %>
+                  </td>
+              </tr>
+          <%}%>
+          </tbody>
+      </table>
+    
+</section>
+
+<script type="text/javascript" src="js/tools.js"></script>

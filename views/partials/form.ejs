@@ -1,0 +1,60 @@
+<div class="home dog-app">
+<div class="wrapper">
+<section class="slogan">
+<h1 class="slogan__header">Be a hero. Adopt a dog.
+</h1>
+<p class="slogan__text">Do you know how many dogs are homeless? All of them need care and attention, and all of them want to live in a happy and warm home. You could save their life. Be a hero.
+</p>
+<div class="actions">
+<button class="btn btn--primary" @click="formLightbox=true">Adopty a dog </button>
+<button class="btn btn--shadow">Donate us </button>
+</div>
+</section>
+<footer class="app-footer">Design by Joanna Ostafin @ProjectPeople.pl </footer>
+</div>
+
+<div class="lightbox" v-show="formLightbox==true" style="display:none ">
+<div class="lightbox__content">
+<h2 class="lightbox__header">Adopt a dog, hero</h2>
+
+	<form class="lightbox__form" action="/applications" method="POST">
+		<div class="lightbox__form-control">
+		<label class="lightbox__label">What's your name?</label>
+		<input class="lightbox__input" placeholder="John Doe" type="text" name="name" />
+		</div>
+
+		<div class="lightbox__form-control">
+		<label class="lightbox__label">What's your phone number?</label> 
+		<input class="lightbox__input" placeholder="+ 48 555 000 000" type="text" name="phone" />
+
+		</div>
+
+		<div class="lightbox__form-control">
+		<label class="lightbox__label">Leave a message</label>
+		<textarea class="lightbox__input" placeholder="Please feel free to ask us anything" rows="3" name="message" ></textarea>
+
+		</div>
+
+		<div class="lightbox__actions">
+		<button class="btn btn--primary">Adoptuj psa</button>
+		</div>
+	</form>
+</div>
+</div>
+
+<% if (formMessage.length){ %>
+<div class="lightbox" v-show="showFeedback">
+  <div class="lightbox__content">
+    <h2 class="lightbox__header"> <%= formMessage.length %>. <%= formMessage %></h2>
+      <div class="lightbox__actions lightbox__actions--centered">
+        <button class="btn btn--primary" @click="closeFeedbackLightbox">Close</button>
+      </div>
+  </div>
+</div>
+<% }%>
+
+<script src="https://cdn.jsdelivr.net/npm/vue" type='text/javascript'></script>
+<script src='./js/app.js' type='text/javascript'></script>
+
+
+</div>

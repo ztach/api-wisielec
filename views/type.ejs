@@ -1,0 +1,56 @@
+  <link rel="stylesheet" href="/css/styles_resp_flex.css">
+  <% include ./partials/head %>
+
+</head> 
+
+<body>
+
+<header class="app-header">
+    <% include ./partials/header %>
+</header>
+
+  <section class="hero">
+    <div class="background-image" ></div>
+    <div class="Text">
+    <h3>Tabela: Typ</h3>
+    <p>Tabela 'Typ' przechowuje typy możliwych haseł dla tabeli 'Dict' </p>
+    </div>
+    <table class="redTable blueTable">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>typ</th>
+                <th> </th>
+            </tr>
+        </thead>
+
+           
+        <tbody>                
+            
+            <% for(var i=0; i<dataType.length; i++) {%>
+                <tr>
+                    <td  id="<%= dataType[i].id %>" ><%= dataType[i].id %></td> 
+                    <td> 
+                            <a href="/type/<%= dataType[i].id %>">
+                        <%= dataType[i].typ %> 
+                            </a>
+                    </td>
+                    <td>
+                        <% if(!isAll && isSingle) {  %>
+                                <a href="/type">
+                                    <span>&#8592;</span>
+                                </a>
+                        <% } else { %>
+                            <a href="/">
+                                <span>&#8592;</span>
+                            </a>
+                        <% }  %>
+                    </td>
+                </tr>
+            <%}%>
+            </tbody>
+        </table>
+      
+  </section>
+
+  <script type="text/javascript" src="js/tools.js"></script>
