@@ -38,7 +38,16 @@ router.get('/', function(req, res){
 
 router.get('/typ', function(req, res){
     const x = req.query.typ
+    console.log('typ ',x)
     let mlike = {typ: {[Op.like]:   '%' + x + '%' }} ;
+    Dict.findAll({where:mlike})
+    .then(dict => res.status(200).json(dict))
+});
+
+//http://localhost:3100/dicts/typ_id?typ=[1,3]
+router.get('/typ_id', function(req, res){
+    const arrTab = JSON.parse("["+req.query.typ+"]");
+    let mlike = {typ_id: {[Op.in]: arrTab }} ;
     Dict.findAll({where:mlike})
     .then(dict => res.status(200).json(dict))
 });
@@ -46,7 +55,7 @@ router.get('/typ', function(req, res){
 
 
 router.get('/:id', [checkIDInput, checkIDExist], function(req, res){
-    //console.log('paramy: ',req.query);
+    console.log('paramy: ',req.params);
     Dict.findByPk(req.params.id).then(dict => {
         //console.log(dict);
         res.status(200).json(dict);

@@ -8,7 +8,8 @@ module.exports = function(sequelize, Sequalize) {
         sl: Sequalize.STRING,
         gt: Sequalize.STRING,
         typ: Sequalize.STRING,
-        polecenie: Sequalize.STRING 
+        polecenie: Sequalize.STRING,
+        typ_id: Sequalize.INTEGER
     },{
         modelName: 'dictVw',
         timestamps: false,
