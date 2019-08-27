@@ -37,6 +37,7 @@ const userRole = require('./routes/userRoleVw');
 const sessions = require('./routes/user_session');
 const sessionVw = require('./routes/sessionVw');
 const gamePoints = require('./routes/gamePointsVw');
+const typeCount = require('./routes/TypeCount');
 
 //Sync Database
 models.sequelize.sync({ force: false }).then(function() {
@@ -70,6 +71,7 @@ app.use('/userRole',userRole);
 app.use('/session',sessions);
 app.use('/sessionVw',sessionVw);
 app.use('/gamePoints',gamePoints);
+app.use('/typeCount',typeCount);
 
 // index path
 // app.get('/', function(req, res){

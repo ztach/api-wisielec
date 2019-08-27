@@ -4,28 +4,23 @@ var router = express.Router();
 
 // middleware
 var checkIDInput = function (req, res, next) {  
-    //console.log('Check ID input');
     if(isNaN(req.params.id)) {
-        //console.log('Invalid ID supplied');
         res.status(400).json('Invalid ID supplied');
     } else {
         next();
     }
 };
 var checkIDExist = function (req, res, next) {  
-    //console.log('Check ID exist');
     Typ.count({ where: { id: req.params.id } }).then(count => {
         if (count != 0) {
             next();
         } else {
-            //console.log('Typ not found');
             res.status(400).json('Typ not found');
         }
     }); 
 };
 
 router.get('/', function(req, res){
-    //console.log('Getting all Typs');
     Typ.findAll().then(typ => {
         res.status(200).json(typ);
     });
@@ -46,9 +41,7 @@ router.post('/', function(req, res){
 });
 
 router.get('/:id', [checkIDInput, checkIDExist], function(req, res){
-    //console.log('Get dict by id',req.params.id);
     Typ.findByPk(req.params.id).then(typ => {
-        //console.log(typ);
         res.status(200).json(typ);
     });
 });
@@ -64,7 +57,6 @@ router.put('/:id', [checkIDInput, checkIDExist], function(req, res){
 });
 
 router.delete('/:id', [checkIDInput, checkIDExist], function(req, res){
-    //console.log('Delete typ by id');
     Typ.destroy({
         where: { id: req.params.id }
     }).then(result => {
