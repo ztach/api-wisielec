@@ -37,6 +37,7 @@ const userRole = require('./routes/userRoleVw');
 const sessions = require('./routes/user_session');
 const sessionVw = require('./routes/sessionVw');
 const gamePoints = require('./routes/gamePointsVw');
+const setGamePoints = require('./routes/gamePoints');
 const typeCount = require('./routes/TypeCount');
 
 //Sync Database
@@ -71,7 +72,9 @@ app.use('/userRole',userRole);
 app.use('/session',sessions);
 app.use('/sessionVw',sessionVw);
 app.use('/gamePoints',gamePoints);
+app.use('/setGamePoints',setGamePoints);
 app.use('/typeCount',typeCount);
+
 
 // index path
 // app.get('/', function(req, res){
