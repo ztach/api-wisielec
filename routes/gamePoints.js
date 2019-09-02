@@ -42,7 +42,9 @@ router.post('/', function(req, res){
         count_click:req.body.count_click,
         bad_click:req.body.bad_click,
         user_id:req.body.user_id,
-        dict_id:req.body.dict_id
+        dict_id:req.body.dict_id,
+        session_id:req.body.session_id,
+        begin_game:req.body.begin_game
     }).then(item => {
         res.status(200).json(item);
     }).error(err => {

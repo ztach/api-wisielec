@@ -5,6 +5,9 @@ module.exports = function(sequelize, Sequalize) {
             type: Sequalize.INTEGER,
             primaryKey: true
         },
+        begin_game:{
+            type: 'TIMESTAMP'
+          },    
         play_time:Sequalize.DOUBLE,
         count_click:Sequalize.INTEGER,
         bad_click:Sequalize.INTEGER,
@@ -13,7 +16,13 @@ module.exports = function(sequelize, Sequalize) {
         haslo: Sequalize.STRING,
         podpowiedz: Sequalize.STRING,
         typ: Sequalize.STRING,
-        user_id:Sequalize.INTEGER
+        user_id:Sequalize.INTEGER,
+        begin_date:{
+            type: 'TIMESTAMP'
+          },    
+        end_date:{
+            type: 'TIMESTAMP'
+          },  
     },{
         modelName: 'gamePointsVw',
         timestamps: false,

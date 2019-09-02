@@ -21,6 +21,7 @@
         <thead>
             <tr>
                 <th>id</th>
+                <th>begin_game</th>
                 <th>play_time</th>
                 <th>count_click</th>
                 <th>bad_click</th>
@@ -38,6 +39,14 @@
                   <td id="<%= dataType[i].id %>" >
                       <%= dataType[i].id %>
                   </td> 
+
+                  
+                  <td> 
+                    <a href="/gamePoints/<%= dataType[i].id %>">
+                      <%= dataType[i].begin_game %> 
+                    </a>
+            </td>
+
 
                   <td> 
                           <a href="/gamePoints/<%= dataType[i].id %>">

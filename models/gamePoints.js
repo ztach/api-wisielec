@@ -9,7 +9,11 @@ module.exports = function(sequelize, Sequalize) {
         count_click:Sequalize.INTEGER,
         bad_click:Sequalize.INTEGER,
         user_id:Sequalize.INTEGER,
-        dict_id:Sequalize.INTEGER
+        dict_id:Sequalize.INTEGER,
+        session_id:Sequalize.INTEGER,
+        begin_game:{
+            type: 'TIMESTAMP'
+          },    
     },{
         modelName: 'gamePoints',
         timestamps: false,
